@@ -1,0 +1,50 @@
+<form>
+ID : <input name=id [(ngModel)]= 'p.id'>
+<br>
+Policy Number : <input name=num  [(ngModel)]='p.num'>
+<br>
+Amount : <input name=amount  [(ngModel)]='p.amount'>
+<br>
+Userid : <input name=uid  [(ngModel)]='p.userId'>
+<br>
+ClientID : <input name=cid  [(ngModel)]='p.clientId'>
+<br>
+Description : <input name=num  [(ngModel)]='p.description'>
+<br> 
+
+<button (click)="addpolicy()" >Add</button>
+
+</form>
+
+<button (click)="fetchall()">Fetch All</button>
+
+
+<h1>Insurance Policies</h1>
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>Policy Number</th>
+    <th>Amount</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  <tr align="center" *ngFor="let policy of policies" >
+    <td>{{policy.id}}</td>
+    <td>{{ policy.num }}</td>
+    <td>{{ policy.amount }}</td>
+    <td>{{ policy.description }}</td>
+    <td>
+      <button (click)="deletePolicy(policy.id)">Delete</button>
+     <button (click)="updatePolicy(policy)">Update</button>
+     </td> 
+    </tr>
+    </table>
+    {{msg}}
+<hr>
+<br><br>
+
+<input  #pid > <br>
+<button (click)='search(pid.value)'>  Search </button>
+
+{{p|json}}
+
